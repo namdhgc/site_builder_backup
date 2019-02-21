@@ -7993,7 +7993,10 @@ process.umask = function() { return 0; };
         init: function(){
 
             //load blocks
+            console.log('namdhx4')
+            console.log(appUI.baseUrl)
             $.getJSON(appUI.baseUrl+'elements.json?v=12345678', function(data){ builderUI.allBlocks = data; builderUI.implementBlocks(); });
+            // $.getJSON(appUI.baseUrl+'./../resources/views/namdh_elements/elements.json?v=12345678', function(data){ builderUI.allBlocks = data; builderUI.implementBlocks(); });
 
             //sitebar hover animation action
             $(this.menuWrapper).on('mouseenter', function(){
