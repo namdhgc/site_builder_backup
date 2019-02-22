@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\News;
 use App\User;
 use App\Site;
 use App\Page;
@@ -16,6 +17,25 @@ use Mail;
 
 class UserController extends Controller
 {
+	/**
+	 * Show list of news
+	 */
+	public function getNews()
+	{
+		$user_id = Auth::user()->id;
+		$news = News::where('user_id', '=', $user_id)->get()->toArray();
+		$user = [
+			'user_id' => $user_id,
+			'first_name' => Auth::user()->first_name,
+			'last_name' => Auth::user()->last_name,
+		];
+
+		$data = compact("user", "news");
+
+		return json_encode($data);
+	}
+
+
 	/**
 	 * Show list of user
 	 */
