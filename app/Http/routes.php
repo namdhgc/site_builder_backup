@@ -266,3 +266,9 @@ Route::post('/delImage', [
 	'as' => 'delImage',
 	'middleware' => 'auth'
 	]);
+
+Route::get('/news', [
+	'uses' => 'UserController@getNews',
+	'as' => 'news',
+	'middleware' => 'auth'
+	]);
